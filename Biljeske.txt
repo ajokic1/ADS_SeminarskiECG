@@ -1,0 +1,14 @@
+R peak extraction
+====================
+(coiflet r-peak extraction.pdf)
+-Coiflet1 bolji od ostalih coiflet
+-Detekcija QRS kompleksa za HRV
+
+https://www.youtube.com/watch?v=ofDHz77hm1c Detecting R-peaks in matlab
+ima matlab kod i neki drugi video
+
+https://physionet.org/tutorials/hrv-toolkit/
+hrv toolkit
+https://physionet.org/physiotools/physionet-cardiovascular-signal-toolbox/ -za matlab (citiraj)
+
+https://www.mathworks.com/help/wavelet/examples/ecg-classification-using-wavelet-features.html

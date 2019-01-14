@@ -42,10 +42,10 @@ ind_parametara=[2:13 15:20];
 rezultatiTrain=zeros(size(trainData,1),21);
 rezultatiTest=zeros(size(testData,1),21);
 for i=1:size(trainData,1)
-    [rezultatiTrain(i,:),fileName]=Main_HRV_Analysis(trainData(i,:),'','ECGWaveform',HRVparams,num2str(i));
+    [rezultatiTrain(i,:),fileName]=Main_HRV_Analysis2(trainData(i,:),'','ECGWaveform',HRVparams,num2str(i));
 end
 for i=1:size(testData,1)
-    [rezultatiTest(i,:),fileName]=Main_HRV_Analysis(trainData(i,:),'','ECGWaveform',HRVparams,num2str(i));
+    [rezultatiTest(i,:),fileName]=Main_HRV_Analysis2(trainData(i,:),'','ECGWaveform',HRVparams,num2str(i));
 end
 
 %% SVM klasifikacija

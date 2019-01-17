@@ -32,20 +32,34 @@ percent_train = 70;
 HRVparams=InitializeHRVparams('SeminarskiADS');
 HRVparams.Fs=uc_uzorkovanja;
 HRVparams.windowlength=512;
+HRVparams.sqi.LowQualityThreshold=0.1;
+HRVparams.preprocess.threshold1=0.1;
+HRVparams.RejectionThreshold = .50;
+HRVparams.MissingDataThreshold = .50;
 
 % Iz rezultata uzimamo samo sljedece parametre:
 %   Time domain:        RR mean, RR Std, HR mean, HR Std, RMSSD, NN50,
 %                       pNN50, RR Triangular Index, TINN.
 %   Frequency domain:   VLFpwr, LFpwr, HFpwer, LFnorm, HFnorm
 %                       LF/HF Ratio
-ind_parametara=[2:13 15:20];
-rezultatiTrain=zeros(size(trainData,1),21);
-rezultatiTest=zeros(size(testData,1),21);
+ind_parametara=[2:14 16:21];
+rezultatiTrain=zeros(size(trainData,1),22);
+rezultatiTest=zeros(size(testData,1),22);
+
+
 for i=1:size(trainData,1)
-    [rezultatiTrain(i,:),fileName]=Main_HRV_Analysis(trainData(i,:),'','ECGWaveform',HRVparams,num2str(i));
+    try
+        [rezultatiTrain(i,:),fileName]=Main_HRV_Analysis(trainData(i,:),'','ECGWaveform',HRVparams,"train"+num2str(i));
+    catch
+        disp(rezultatiTrain(i,:))
+    end
 end
 for i=1:size(testData,1)
-    [rezultatiTest(i,:),fileName]=Main_HRV_Analysis(trainData(i,:),'','ECGWaveform',HRVparams,num2str(i));
+    try
+        [rezultatiTest(i,:),fileName]=Main_HRV_Analysis(trainData(i,:),'','ECGWaveform',HRVparams,"test"+num2str(i));
+    catch
+        disp(rezultatiTest(i,:))
+    end
 end
 
 %% SVM klasifikacija
@@ -57,15 +71,15 @@ template = templateSVM(...
     'BoxConstraint',1,...
     'Standardize',true);
 model = fitcecoc(...
-     trainFeatures,...
+     rezultatiTrain,...
      trainLabels,...
      'Learners',template,...
      'Coding','onevsone',...
      'ClassNames',{'ARR','CHF','NSR'});
-predLabels = predict(model,testFeatures);
 
 %% Testiranje modela
 
+predLabels = predict(model,rezultatiTest);
 correctPredictions = strcmp(predLabels,testLabels);
 testAccuracy = sum(correctPredictions)/length(testLabels)*100
 [confmatTest,grouporder] = confusionmat(testLabels,predLabels);

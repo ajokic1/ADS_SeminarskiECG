@@ -3,25 +3,18 @@ close all
 clc
 
 load ('primjer.mat')
-[wA,wD]=dwt(val, 'coif1');
-[wA2,wD2]=dwt(wA, 'coif1');
-[wA3,wD3]=dwt(wA2, 'coif1');
-subplot(3,2,1)
-plot(val)
-title('original')
+tm=1:length(val); %vrijeme
 
-subplot(3,2,2)
-plot(wD)
-title('lv1 det')
-
-subplot(3,2,3)
-plot(wD2)
-title('lv2 det')
-
-subplot(3,2,4)
-plot(wA3)
-title('lv3 apr')
-
-subplot(3,2,5)
-plot(wD3)
-title('lv3 det')
+wt = modwt(val,'coif1',5);
+wtrec = zeros(size(wt));
+wtrec(4:5,:) = wt(4:5,:);
+y = imodwt(wtrec,'coif1');
+y = abs(y).^2;
+[qrspeaks,locs] = findpeaks(y,tm,'MinPeakHeight',1,...
+    'MinPeakDistance',200);
+figure
+plot(tm,y)
+hold on
+plot(locs,qrspeaks,'ro')
+xlabel('Seconds')
+title('R Peaks Localized by Wavelet Transform with Automatic Annotations')

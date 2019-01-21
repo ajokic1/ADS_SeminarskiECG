@@ -1,2 +1,5 @@
 \babel@toc {serbian}{}
 \contentsline {section}{\numberline {1}Uvod}{1}{section.1}
+\contentsline {section}{\numberline {2}EKG}{1}{section.2}
+\contentsline {section}{\numberline {3}LMS filtriranje}{2}{section.3}
+\contentsline {section}{\numberline {4}Izdvajanje parametara}{3}{section.4}

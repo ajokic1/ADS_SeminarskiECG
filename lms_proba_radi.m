@@ -1,13 +1,14 @@
-clear all
+clear
 clc
 close all
 
 %load('C:\Users\kokik\Documents\ADS\Seminarski EKG\MLII\1 NSR\100m (0).mat')
 
-disp('Ucitavanje signala iz MIT-BIH baze')
+disp('Ucitavanje signala iz MIT-BIH baze...')
 [~,config]=wfdbloadlib;
 M=10000;
 [ecg,Fs,tm]=rdsamp('mitdb/100',1,M);
+
 a=0.1*randn(1,length(ecg)); %sum
 b=(ecg'+a); %signal+sum
 
@@ -24,7 +25,7 @@ Hm = zeros(N, M);
 y  = zeros(M, 1);
 e  = zeros(M, 1);
 mii=zeros(1,M);
-disp('LMS algoritam')
+disp('LMS algoritam...')
 for   n = N:M
     Hm(:,n) = H;
     X = x(n:-1:n-(N-1));

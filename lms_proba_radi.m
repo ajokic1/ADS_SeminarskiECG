@@ -17,28 +17,28 @@ d=b';
 
 %M=length(x);
 
-N  = 3;  
+N  = 2;  
 %mi=0.12;
-mi0 = 0.1; %korak
+mi0 = 0.7; %korak
 H  = zeros(N, 1);
 Hm = zeros(N, M);
 y  = zeros(M, 1);
 e  = zeros(M, 1);
-mii=zeros(1,M);
 disp('LMS algoritam...')
 for   n = N:M
     Hm(:,n) = H;
     X = x(n:-1:n-(N-1));
-    mi = mi0/(1 + X'*X); % malo lambda 
-%       if n>500
-%           mi=0.0000005;
-%       elseif n>100
-%           mi=0.0000002;
-%       end
+    
+    if n>700
+        mi0=0.05;
+    elseif n>200
+        mi0=0.15;
+    end
+    mi = mi0/(1 + X'*X);
+
     y(n) = H'*X; 
     e(n) = d(n) - y(n);
     H = H + mi*e(n)*X;
-    mii(n)=mi;
 end
 
 
@@ -56,8 +56,6 @@ plot(t,e,t,ecg)
 title('filtriran')
 %ylim([900 1300])
 
-% figure
-% plot(mii)
 
 figure
 t=1:M;

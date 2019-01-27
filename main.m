@@ -1,8 +1,6 @@
 %
 % ==== Obrada i klasifikacija EKG signala pomocu SVM klasifikatora ====
 %
-% Andrej Jokic
-%
 
 %% Ucitavanje signala
 % ECGData.Data: Matrica dimenzija 162x65536

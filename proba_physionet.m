@@ -11,7 +11,7 @@ HRVparams.windowlength=512;
 
 [rezultati,fileName]=Main_HRV_Analysis(ECGData.Data(1,:),'','ECGWaveform',HRVparams);
 
-% Iz rezultata uzimamo samo sljedece parametre:
+% Iz rezultata uzimamo sljedece parametre:
 %   Time domain:        RR mean, RR Std, HR mean, HR Std, RMSSD, NN50, 
 %                       pNN50, RR Triangular Index, TINN.
 %   Frequency domain:   VLFpwr, LFpwr, HFpwer, LFnorm, HFnorm

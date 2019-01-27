@@ -16,9 +16,9 @@ d=b';
 
 %M=length(x);
 
-N  = 3;  
+N  = 2;  
 %mi=0.12;
-mi0 = 0.1; %korak
+mi0 = 0.15; %korak
 H  = zeros(N, 1);
 Hm = zeros(N, M);
 y  = zeros(M, 1);

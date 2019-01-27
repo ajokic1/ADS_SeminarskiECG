@@ -1,0 +1,11 @@
+\babel@toc {serbian}{}
+\contentsline {section}{\numberline {1}Uvod}{1}{section.1}
+\contentsline {section}{\numberline {2}Matemati\IeC {\v c}ke formule}{1}{section.2}
+\contentsline {subsection}{\numberline {2.1}Jo\IeC {\v s} formula}{1}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Rje\IeC {\v s}avanje linearne jedna\IeC {\v c}ine}{1}{subsection.2.2}
+\contentsline {section}{\numberline {3}Grafika}{2}{section.3}
+\contentsline {section}{\numberline {4}Tabele}{2}{section.4}
+\contentsline {section}{\numberline {5}Programi}{3}{section.5}
+\contentsline {subsection}{\numberline {5.1}Funkcija SetFigureDefaults.m}{3}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Skript fajl Slika1.m}{3}{subsection.5.2}
+\contentsline {section}{Zaklju\IeC {\v c}ak}{4}{section*.4}

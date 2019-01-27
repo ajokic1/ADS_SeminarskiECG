@@ -2,7 +2,7 @@ clear all
 clc
 close all
 
-load('C:\Users\kokik\Documents\ADS\Seminarski EKG\MLII\1 NSR\100m (0).mat')
+load('C:\Users\kokik\Documents\ADS\Seminarski EKG\100m (0).mat')
 val=double(val)/1000;
 a=0.01*randn(1,length(val));
 b=(val+a);
@@ -14,7 +14,7 @@ M=length(x);
 N=5;
 H=zeros(N,1);
 %mi=1;
-mi1=1;
+mi1=0.000004;
 e=zeros(1,M);
 mii=zeros(1,M);
 for i=1:M

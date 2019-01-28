@@ -15,7 +15,7 @@ RR1=cell(N,1);
 for i=1:N
     s=['mitdb/' int2str(signali(i))];
     [ecg1{i},Fs1,tm1]=rdsamp(s,1,M);
-    [RR1{i},tms1]=ann2rr(s,'atr',M);
+    [RR1{i},tms1{i}]=ann2rr(s,'atr',M);
     klasa1{i}='ARR';
     disp(['ucitan arr' int2str(i)])
 end
